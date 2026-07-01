@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha Das Armas</title>
+    <link rel="shortcut icon" href="img/EB.png">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="js/script.js" async></script>
+</head>
+<body>
+    <div id="Mestra" class="OcultMestra">
+        <div id="MestraAlu"><h1 id="AluM">Aluno</h1></div>
+        <div id="imgMestra"></div>
+        <div id="MestraArma"><h1 id="ArmaM">INFANTARIA</h1></div>
+    </div>
+    <div id="modalAuto" class="modal-fundo">
+      <div class="modal-caixa">
+        <span class="modal-fechar" onclick="fecharModal()">&times;</span>
+        <h2 class="modalErro">Escolhas Finalizadas!</h2>
+        <div class="modalTry" id="modalTry">Ver Armas</div>
+      </div>
+    </div>
+    <div class="topo">
+        <img src="img/bandeira7.png" alt="Bandeira do Brasil" class="bandeira"/>
+        <div id="cabecalho">
+            <h2 class="cabecalho">Escolha das Armas - Alunos CPOR/SP Turma 2026</h2>
+            <a href="#cards"><div class="iniciar">Começar Escolha</div></a>
+        </div>
+    </div>
+    <section id="tbContainer"></section>
+    <div id="btnClass"><h3>Mostrar Classificação</h3></div>
+    <div class="PosAluno"></div>
+    <section id="cards"></section>
+    <div id="undo"><h3 class="txtUndo">Desfazer</h3></div>
+</body>
+</html>
