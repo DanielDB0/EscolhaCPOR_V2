@@ -1,11 +1,81 @@
 window.addEventListener('keydown', function(e) {
-    // Verifica se a tecla pressionada é F5, ou se a tecla 'r' está sendo pressionada com Ctrl
     if (e.key === 'F5' || (e.key === 'r' && (e.ctrlKey || e.metaKey))) {
         e.preventDefault(); // Cancela o recarregamento da página
     }
 });
 
+window.addEventListener('keydown', function(e) {
+    if ((e.key === 'z' && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault();
+        undo() // Cancela o recarregamento da página
+    }
+});
+
+window.addEventListener('keydown', function(e) {
+    if ((e.key === '1' && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault();
+        Inf() // Cancela o recarregamento da página
+    }
+});
+
+window.addEventListener('keydown', function(e) {
+    if ((e.key === '2' && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault();
+        Cav() // Cancela o recarregamento da página
+    }
+});
+
+window.addEventListener('keydown', function(e) {
+    if ((e.key === '3' && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault();
+        Art() // Cancela o recarregamento da página
+    }
+});
+
+window.addEventListener('keydown', function(e) {
+    if ((e.key === '4' && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault();
+        Eng() // Cancela o recarregamento da página
+    }
+});
+
+window.addEventListener('keydown', function(e) {
+    if ((e.key === '5' && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault();
+        Int() // Cancela o recarregamento da página
+    }
+});
+
+window.addEventListener('keydown', function(e) {
+    if ((e.key === '6' && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault();
+        Com() // Cancela o recarregamento da página
+    }
+});
+
+window.addEventListener('keydown', function(e) {
+    if ((e.key === '7' && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault();
+        Mat() // Cancela o recarregamento da página
+    }
+});
+
+let CtrlP = false
 let MestraActivate = false
+
+window.addEventListener('keydown', function(e) {
+    if ((e.key === 'p' && (e.ctrlKey || e.metaKey)) && !MestraActivate) {
+        e.preventDefault();
+        if(CtrlP){
+            alert('Tela de arma escolhida Ativada')
+        }
+        else{
+            alert('Tela de arma escolhida Desativada')
+        }
+        CtrlP = !CtrlP
+    }
+});
+
 
 document.addEventListener('keydown', function(event) {
     // Verifica se a tecla pressionada foi a barra de espaço
@@ -19,11 +89,13 @@ document.addEventListener('keydown', function(event) {
 const Mestra = document.querySelector('#Mestra') 
 
 function ControlMestra(index){
-    MestraActivate = true
-    Mestra.classList.remove('OcultMestra')
-    document.querySelector('#AluM').innerHTML = Alunos[posAluno][1]
-    document.querySelector('#imgMestra').innerHTML = `<img src="imgG/${imgArmas[index]}G.png" alt="" id="imgM"></img>`
-    document.querySelector('#ArmaM').innerHTML = nomeArmas[index].toUpperCase()
+    if (!CtrlP) {
+        MestraActivate = true
+        Mestra.classList.remove('OcultMestra')
+        document.querySelector('#AluM').innerHTML = Alunos[posAluno][1]
+        document.querySelector('#imgMestra').innerHTML = `<img src="imgG/${imgArmas[index]}G.png" alt="" id="imgM"></img>`
+        document.querySelector('#ArmaM').innerHTML = nomeArmas[index].toUpperCase()
+    }
 }
 
 function CloseMestra(){
@@ -305,8 +377,7 @@ function att(arma, index, origem = 'do'){
         }
         if(posAluno == 175){
             abrirModal();
-        }   
-        console.log(index + ' ' + escolhasArmas[index] + ' ' + posAluno)
+        } 
         gerarTbClass()
     }
     const cardContainer = document.querySelector('#cards')
@@ -435,7 +506,6 @@ function attTbArma(arma, index){
     const porcent = 25 - armas[index].length        }
 `
         for(i = 0; i < escolhasArmas[index].length; i++){
-            console.log(Alunos[escolhasArmas[index][i]][0])
             Alu.innerHTML += `<tr><th>${escolhasArmas[index][i]}</th><th>${Number(String(index + 1) + Alunos[escolhasArmas[index][i]][0])}</th><th>${Alunos[escolhasArmas[index][i]][1]}</th></tr>`
         }
         arma.classList.remove('disable')
@@ -507,7 +577,6 @@ function undo(){
     for(index = 0; index < 7; index++){
         if(escolhasArmas[index][escolhasArmas[index].length - 1] == posAluno) {
             escolhasArmas[index].pop()
-            console.log(index + ' ' + escolhasArmas[index] + ' ' + posAluno)
             posAluno--
             if(posAluno == 0){
                 Undo.style.display = "none"
@@ -529,3 +598,21 @@ function ProgressBar(index){
     porcent = Math.round(escolhasArmas[index].length / 25 * 100)
     alert(`${porcent}%`)
 }
+
+
+console.log(`Guia de Atalhos - Início PFA, CPOR/SP 2026
+
+Por padrão f5 e CTRL + R estão bloqueados, caso precise recarregar a página utilize o botão do navegador.
+
+Atalhos:
+Espaço - Pular tela "Arma Escolhida"
+Ctrl + 1 - Escolher Infantaria
+Ctrl + 2 - Escolher Cavalaria
+Ctrl + 3 - Escolher Artilharia
+Ctrl + 4 - Escolher Engenharia
+Ctrl + 5 - Escolher Intendência
+Ctrl + 6 - Escolher Comunicações
+Ctrl + 7 - Escolher Material Bélico
+Ctrl + Z - Desfazer Escolha 
+Ctrl + P - Bloquear/Desbloquear tela "Arma Escolhida"
+`)
