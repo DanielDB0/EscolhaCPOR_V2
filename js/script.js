@@ -510,9 +510,6 @@ function attTbArma(arma, index){
         </div>`
         const Alu = arma.querySelector(`#tb${armas[1][index]}`)
         Alu.innerHTML += `
-
-        function ProgressBar(index){
-    const porcent = 25 - armas[index].length        }
 `
         for(i = 0; i < escolhasArmas[index].length; i++){
             Alu.innerHTML += `<tr><th>${escolhasArmas[index][i]}</th><th>${Number(String(index + 1) + Alunos[escolhasArmas[index][i]][0])}</th><th>${Alunos[escolhasArmas[index][i]][1]}</th></tr>`
