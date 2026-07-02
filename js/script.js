@@ -5,7 +5,7 @@ window.addEventListener('keydown', function(e) {
 });
 
 window.addEventListener('keydown', function(e) {
-    if ((e.key === 'z' && (e.ctrlKey || e.metaKey))) {
+    if ((e.key === 'z' && (e.ctrlKey || e.metaKey)) && posAluno !== 175) {
         e.preventDefault();
         undo() // Cancela o recarregamento da página
     }
@@ -361,11 +361,13 @@ function att(arma, index, origem = 'do'){
         <div class="imgCard">
             <img src="img/${armas[1][index]}.png" alt="Brasão de ${armas[0][index]}" class="imgArma"/>
         </div>
+        <div id="Progress" class="progBar${index}"></div>
         <div class="vagas">
             <p class="pNumero">${25-escolhasArmas[index].length}</p>
             <p class="pButton">Vagas Restantes</p>
         </div>
         `
+
         if(25-escolhasArmas[index].length === 0){
             arma.classList.remove('card')
             arma.classList.add('disable')
@@ -435,6 +437,7 @@ function Inf(){
     posAluno++
     ControlMestra(0)
     att(infantaria, 0)
+    ProgressBar(0)
 }
 function Cav(){
     if(25-escolhasArmas[1].length < 1){
@@ -443,6 +446,7 @@ function Cav(){
     posAluno++
     ControlMestra(1)
     att(cavalaria, 1)
+    ProgressBar(1)
 }
 function Art(){
     if(25-escolhasArmas[2].length < 1){
@@ -451,6 +455,7 @@ function Art(){
     posAluno++
     ControlMestra(2)
     att(artilharia, 2)
+    ProgressBar(2)
 }
 function Eng(){
     if(25-escolhasArmas[3].length < 1){
@@ -459,6 +464,7 @@ function Eng(){
     posAluno++
     ControlMestra(3)
     att(engenharia, 3)
+    ProgressBar(3)
 }
 function Com(){
     if(25-escolhasArmas[5].length < 1){
@@ -467,6 +473,7 @@ function Com(){
     posAluno++
     ControlMestra(5)
     att(comunicacoes, 5)
+    ProgressBar(5)
 }
 function Mat(){
     if(25-escolhasArmas[6].length < 1){
@@ -475,6 +482,7 @@ function Mat(){
     posAluno++
     ControlMestra(6)
     att(matbel, 6)
+    ProgressBar(6)
 }
 function Int(){
     if(25-escolhasArmas[4].length < 1){
@@ -483,6 +491,7 @@ function Int(){
     posAluno++
     ControlMestra(4)
     att(intendencia, 4)
+    ProgressBar(4)
 }
 
 document.querySelector("#modalTry").addEventListener("click", verArma)
@@ -586,6 +595,7 @@ function undo(){
                 ObjArma[index].classList.add('card')
             }
             att(ObjArma[index], index, 'undo')
+            ProgressBar(index)  
             break
         }
     }
@@ -596,7 +606,20 @@ function undo(){
 function ProgressBar(index){
     let porcent = 0
     porcent = Math.round(escolhasArmas[index].length / 25 * 100)
-    alert(`${porcent}%`)
+
+    const element = document.querySelector(`.progBar${index}`)
+    let stringColor = ''
+    for(i = 0; i < 100; i++){
+        stringColor += ', '
+        if(porcent){
+            stringColor += 'red'
+            porcent--
+        }
+        else{
+            stringColor += 'white'    
+        }
+    }
+    element.style.background = `linear-gradient(to right ${stringColor})`
 }
 
 

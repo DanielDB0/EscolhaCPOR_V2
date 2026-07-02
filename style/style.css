@@ -358,3 +358,14 @@ h2{
          0.5px  0.5px 0 red;
     width: 20%;
 }
+
+#Progress{
+    width: 80%;
+    height: 5px;
+    text-align: center;
+    margin-left: 10%;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    background-color: white;
+    border: solid #000 1px;
+}
