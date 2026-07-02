@@ -5,56 +5,56 @@ window.addEventListener('keydown', function(e) {
 });
 
 window.addEventListener('keydown', function(e) {
-    if ((e.key === 'z' && (e.ctrlKey || e.metaKey)) && posAluno !== 175) {
+    if ((e.key === 'z' && (e.ctrlKey || e.metaKey)) && posAluno !== 175 && !MestraActivate) {
         e.preventDefault();
         undo() // Cancela o recarregamento da página
     }
 });
 
 window.addEventListener('keydown', function(e) {
-    if ((e.key === '1' && (e.ctrlKey || e.metaKey))) {
+    if ((e.key === '1' && (e.ctrlKey || e.metaKey)) && !MestraActivate) {
         e.preventDefault();
         Inf() // Cancela o recarregamento da página
     }
 });
 
 window.addEventListener('keydown', function(e) {
-    if ((e.key === '2' && (e.ctrlKey || e.metaKey))) {
+    if ((e.key === '2' && (e.ctrlKey || e.metaKey)) && !MestraActivate) {
         e.preventDefault();
         Cav() // Cancela o recarregamento da página
     }
 });
 
 window.addEventListener('keydown', function(e) {
-    if ((e.key === '3' && (e.ctrlKey || e.metaKey))) {
+    if ((e.key === '3' && (e.ctrlKey || e.metaKey)) && !MestraActivate) {
         e.preventDefault();
         Art() // Cancela o recarregamento da página
     }
 });
 
 window.addEventListener('keydown', function(e) {
-    if ((e.key === '4' && (e.ctrlKey || e.metaKey))) {
+    if ((e.key === '4' && (e.ctrlKey || e.metaKey)) && !MestraActivate) {
         e.preventDefault();
         Eng() // Cancela o recarregamento da página
     }
 });
 
 window.addEventListener('keydown', function(e) {
-    if ((e.key === '5' && (e.ctrlKey || e.metaKey))) {
+    if ((e.key === '5' && (e.ctrlKey || e.metaKey)) && !MestraActivate) {
         e.preventDefault();
         Int() // Cancela o recarregamento da página
     }
 });
 
 window.addEventListener('keydown', function(e) {
-    if ((e.key === '6' && (e.ctrlKey || e.metaKey))) {
+    if ((e.key === '6' && (e.ctrlKey || e.metaKey)) && !MestraActivate) {
         e.preventDefault();
         Com() // Cancela o recarregamento da página
     }
 });
 
 window.addEventListener('keydown', function(e) {
-    if ((e.key === '7' && (e.ctrlKey || e.metaKey))) {
+    if ((e.key === '7' && (e.ctrlKey || e.metaKey)) && !MestraActivate) {
         e.preventDefault();
         Mat() // Cancela o recarregamento da página
     }
